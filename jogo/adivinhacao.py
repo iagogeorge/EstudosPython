@@ -5,9 +5,23 @@ print("olá bem vindo ao jogo de adivinhação")
 print("************************************")
 
 numero_secreto =  random.randrange(1, 101)
-total_de_tentativas = 3
+total_de_tentativas = 0
 numero_minimo = 1
 numero_maximo  = 100
+
+
+print("qual o nível de dificuldade?")
+print("(1) - fácil (2) - médio (3) - Díficil")
+
+nivel = input("Defina um nível de dificuldade: ")
+
+
+if int(nivel) == 1:
+    total_de_tentativas = 20
+elif int(nivel) == 2:
+    total_de_tentativas = 10
+else:
+    total_de_tentativas = 5
 
 
 for rodada in  range (1, total_de_tentativas + 1):
