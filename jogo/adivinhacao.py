@@ -6,6 +6,7 @@ print("************************************")
 
 numero_secreto =  random.randrange(1, 101)
 total_de_tentativas = 0
+pontos = 1000
 numero_minimo = 1
 numero_maximo  = 100
 
@@ -38,7 +39,7 @@ for rodada in  range (1, total_de_tentativas + 1):
     menor = int(chute) < numero_secreto
 
     if (acertou):
-        print("você acertou!!")
+        print("você acertou!! e fez {} pontos!!".format(pontos))
         break
 
     else:
@@ -46,6 +47,8 @@ for rodada in  range (1, total_de_tentativas + 1):
             print("você errou! o seu chute foi maior do que o numero secreto.")
         elif(menor):
             print("você errou! o seu chute  foi menor do que o numero secreto.")
+        pontos_perdidos = abs(numero_secreto - int(chute))
+        pontos = pontos - pontos_perdidos
 
 
     rodada = rodada + 1
