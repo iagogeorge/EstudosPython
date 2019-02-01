@@ -1,5 +1,25 @@
 import random
 
+def define_nivel():
+
+    total_de_tentativas = 0
+    print("qual o nível de dificuldade?")
+    print("(1) - fácil (2) - médio (3) - Díficil")
+
+    nivel = input("Defina um nível de dificuldade: ")
+
+
+    if nivel != '':
+        if int(nivel) == 1:
+            total_de_tentativas = 20
+        elif int(nivel) == 2:
+            total_de_tentativas = 10
+        else:
+            total_de_tentativas = 5
+    else:
+        return 0
+    return total_de_tentativas
+
 def jogar():
 
     print("************************************")
@@ -7,30 +27,22 @@ def jogar():
     print("************************************")
 
     numero_secreto =  random.randrange(1, 101)
-    total_de_tentativas = 0
+
     pontos = 1000
     numero_minimo = 1
-    numero_maximo  = 100
+    numero_maximo = 100
+    total_de_tentativas = 0
 
-
-    print("qual o nível de dificuldade?")
-    print("(1) - fácil (2) - médio (3) - Díficil")
-
-    nivel = input("Defina um nível de dificuldade: ")
-
-
-    if int(nivel) == 1:
-        total_de_tentativas = 20
-    elif int(nivel) == 2:
-        total_de_tentativas = 10
-    else:
-        total_de_tentativas = 5
-
+    while total_de_tentativas <= 0:
+        total_de_tentativas = define_nivel()
 
     for rodada in  range (1, total_de_tentativas + 1):
         print("tentativa {} de {}".format(rodada, total_de_tentativas))
         chute = input("Digite um numero entre {} e {} : ". format(numero_minimo, numero_maximo))
 
+        if chute == '':
+            print("Você tem que digitar um numero válido. se não fizer isto, vai perder tentativas ;)")
+            continue
 
         if int(chute) < numero_minimo or int(chute) > numero_maximo:
             print("voce digitou o numero {} que nao está entre os numeros {} e {} tente novamente: "
