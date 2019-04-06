@@ -2,4 +2,3 @@ maca
 banana
 caju
 laranja
-acerola
